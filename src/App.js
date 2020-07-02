@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Layout from '@vtex/styleguide/lib/Layout'
+import Card from '@vtex/styleguide/lib/Card'
+
+import Collapsible from '@vtex/styleguide/lib/Collapsible'
 
 function App() {
+  const [isOpen, setIsOpen] = React.useState(false)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Layout fullWidth>
+      <Card>
+        <Collapsible
+          isOpen={isOpen}
+          onClick={() => { setIsOpen(!isOpen) }}
+          header="Carai"
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          oi
+        </Collapsible>
+      </Card>
+    </Layout>
   );
 }
 
