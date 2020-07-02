@@ -1,11 +1,11 @@
-import { AuthTypes } from './types';
+import { AuthTypes } from './types'
 
 const initialState = {
   authToken: null,
   user: {},
   hasError: false,
-  errorMsg: '',
-};
+  errorMsg: ''
+}
 
 export function authReducer(state = initialState, action) {
   switch (action.type) {
@@ -13,33 +13,33 @@ export function authReducer(state = initialState, action) {
       return {
         ...state,
         hasError: false,
-        errorMsg: '',
-      };
+        errorMsg: ''
+      }
     case AuthTypes.SIGN_IN_SUCCESS:
-      const { authToken, user } = action.payload;
+      const { authToken, user } = action.payload
       return {
         ...state,
         user,
         authToken,
-        hasError: false,
-      };
+        hasError: false
+      }
     case AuthTypes.SIGN_IN_FAILURE:
       return {
         ...state,
         hasError: true,
-        errorMsg: action.payload,
-      };
+        errorMsg: action.payload
+      }
     case AuthTypes.SIGN_IN_FORBIDDEN:
       return {
         ...state,
         hasError: true,
         isSigned: false,
-        errorMsg: action.payload,
-      };
+        errorMsg: action.payload
+      }
     case AuthTypes.LOGOUT:
     case AuthTypes.SIGN_IN_RESET:
-      return initialState;
+      return initialState
     default:
-      return state;
+      return state
   }
 }

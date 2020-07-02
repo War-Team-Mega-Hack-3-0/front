@@ -1,31 +1,31 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Route, Redirect } from 'react-router-dom';
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Route, Redirect } from 'react-router-dom'
 // import { useSelector } from 'react-redux';
 
 // import { AuthSignedSelector } from '../Redux/Auth/selector';
 
 function RouteWrapper({ component: Component, isPrivate, ...rest }) {
-  const signed = ''//useSelector(AuthSignedSelector);
+  const signed = ''// useSelector(AuthSignedSelector);
 
   if (!signed && isPrivate) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/login" />
   }
 
   if (signed && !isPrivate) {
-    return <Redirect to="/mentores" />;
+    return <Redirect to="/mentores" />
   }
 
-  return <Route {...rest} component={Component} />;
+  return <Route {...rest} component={Component} />
 }
 
 RouteWrapper.propTypes = {
   isPrivate: PropTypes.bool,
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired,
-};
+  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]).isRequired
+}
 
 RouteWrapper.defaultProps = {
-  isPrivate: false,
-};
+  isPrivate: false
+}
 
-export { RouteWrapper };
+export { RouteWrapper }

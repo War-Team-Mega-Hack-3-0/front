@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import Layout from '@vtex/styleguide/lib/Layout'
 import Card from '@vtex/styleguide/lib/Card'
@@ -16,7 +16,7 @@ export function Home() {
     <Layout fullWidth>
       <Card>
         {JSON.stringify(authState)}
-        <button onClick={() => { dispatch(signInSuccess('teste',{})) }}>oi</button>
+        <button onClick={() => { dispatch(signInSuccess('teste', {})) }}>oi</button>
         <Collapsible
           isOpen={isOpen}
           onClick={() => { setIsOpen(!isOpen) }}

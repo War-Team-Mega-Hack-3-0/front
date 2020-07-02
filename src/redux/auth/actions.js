@@ -1,41 +1,41 @@
-import { AuthTypes } from './types';
+import { AuthTypes } from './types'
 
 export function signInRequest(username, password) {
   return {
     type: AuthTypes.SIGN_IN_REQUEST,
-    payload: { username, password },
-  };
+    payload: { username, password }
+  }
 }
 
 export function signInSuccess(authToken, user) {
   return {
     type: AuthTypes.SIGN_IN_SUCCESS,
-    payload: { authToken, user },
-  };
+    payload: { authToken, user }
+  }
 }
 
 export function signInFailure(errorMsg) {
   return {
     type: AuthTypes.SIGN_IN_FAILURE,
-    payload: errorMsg,
-  };
+    payload: errorMsg
+  }
 }
 
 export function logout() {
   return {
-    type: AuthTypes.LOGOUT,
-  };
+    type: AuthTypes.LOGOUT
+  }
 }
 
 export function signInForbidden(forbiddenMsg) {
   return {
     type: AuthTypes.SIGN_IN_FORBIDDEN,
-    payload: forbiddenMsg,
-  };
+    payload: forbiddenMsg
+  }
 }
 
 export function signInResetState() {
   return {
-    type: AuthTypes.SIGN_IN_RESET,
-  };
+    type: AuthTypes.SIGN_IN_RESET
+  }
 }
