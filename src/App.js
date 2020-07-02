@@ -3,17 +3,12 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './redux'
+import { Routes } from './routes'
 
-import { Home } from './pages'
-
-function App() {
-  return (
-    <Provider store={store}>
-      <PersistGate persistor={persistor}>
-        <Home />
-      </PersistGate>
-    </Provider>
-  );
-}
-
-export default App;
+export const App = () => (
+  <Provider store={store}>
+    <PersistGate persistor={persistor}>
+      <Routes />
+    </PersistGate>
+  </Provider>
+);

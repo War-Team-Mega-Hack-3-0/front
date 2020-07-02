@@ -3,8 +3,6 @@ import { AuthTypes } from './types';
 const initialState = {
   authToken: null,
   user: {},
-  isSignIn: false,
-  isSigned: false,
   hasError: false,
   errorMsg: '',
 };
@@ -14,7 +12,6 @@ export function authReducer(state = initialState, action) {
     case AuthTypes.SIGN_IN_REQUEST:
       return {
         ...state,
-        isSignIn: true,
         hasError: false,
         errorMsg: '',
       };
@@ -24,14 +21,11 @@ export function authReducer(state = initialState, action) {
         ...state,
         user,
         authToken,
-        isSigned: true,
-        isSignIn: false,
         hasError: false,
       };
     case AuthTypes.SIGN_IN_FAILURE:
       return {
         ...state,
-        isSignIn: false,
         hasError: true,
         errorMsg: action.payload,
       };
@@ -39,7 +33,6 @@ export function authReducer(state = initialState, action) {
       return {
         ...state,
         hasError: true,
-        isSignIn: false,
         isSigned: false,
         errorMsg: action.payload,
       };
