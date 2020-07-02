@@ -1,0 +1,8 @@
+export const AuthTypes = {
+  LOGOUT: '[auth]LOGOUT',
+  SIGN_IN_RESET: '[auth] SIGN_IN_RESET',
+  SIGN_IN_REQUEST: '[auth]SIGN_IN_REQUEST',
+  SIGN_IN_SUCCESS: '[auth]SIGN_IN_SUCCESS',
+  SIGN_IN_FAILURE: '[auth]SIGN_IN_FAILURE',
+  SIGN_IN_FORBIDDEN: '[auth]SIGN_IN_FORBIDDEN',
+};

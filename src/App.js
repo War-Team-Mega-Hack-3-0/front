@@ -1,24 +1,18 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 
-import Layout from '@vtex/styleguide/lib/Layout'
-import Card from '@vtex/styleguide/lib/Card'
+import { store, persistor } from './redux'
 
-import Collapsible from '@vtex/styleguide/lib/Collapsible'
+import { Home } from './pages'
 
 function App() {
-  const [isOpen, setIsOpen] = React.useState(false)
   return (
-    <Layout fullWidth>
-      <Card>
-        <Collapsible
-          isOpen={isOpen}
-          onClick={() => { setIsOpen(!isOpen) }}
-          header="Carai"
-        >
-          oi
-        </Collapsible>
-      </Card>
-    </Layout>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <Home />
+      </PersistGate>
+    </Provider>
   );
 }
 
