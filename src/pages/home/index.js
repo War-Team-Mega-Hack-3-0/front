@@ -14,6 +14,8 @@ import { signInSuccess } from '../../redux/auth/actions'
 
 import styled from 'styled-components'
 
+import { askForPermissionToReceiveNotifications } from '../../services/firebase'
+
 const Space = styled.div`
 margin: 2rem 0;
 `
@@ -32,7 +34,7 @@ export function Home() {
           // isLoading
           // disabled
           variation="secondary"
-          onClick={() => { setIsOpen(!isOpen) }}>oi</Button>
+          onClick={askForPermissionToReceiveNotifications}>oi</Button>
         <Space />
 
         <Divider />

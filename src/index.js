@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { App } from './App'
-import * as serviceWorker from './serviceWorker'
-
 import 'vtex-tachyons'
+
+import { App } from './App'
+import { initializeFirebase } from './services/firebase'
+import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,4 +13,5 @@ ReactDOM.render(
   document.getElementById('root')
 )
 
+initializeFirebase()
 serviceWorker.register()
