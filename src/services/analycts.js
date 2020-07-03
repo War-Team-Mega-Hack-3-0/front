@@ -1,11 +1,11 @@
 window.dataLayer = window.dataLayer || []
 
-const locals = {}
+// const locals = {}
 
-export function sendEvent({ categoy, action, label }) {
+export function sendEvent({ category, action, label }) {
   const event = {
     event: 'ga.event',
-    gaCategory: categoy,
+    gaCategory: category,
     gaAction: action,
     gaLabel: label || null
   }

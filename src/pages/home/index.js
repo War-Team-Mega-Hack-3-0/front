@@ -3,10 +3,20 @@ import React from 'react'
 import Layout from '@vtex/styleguide/lib/Layout'
 import Card from '@vtex/styleguide/lib/Card'
 import Collapsible from '@vtex/styleguide/lib/Collapsible'
+import Button from '@vtex/styleguide/lib/ButtonPlain'
+import Divider from '@vtex/styleguide/lib/Divider'
+
+import SelectableCard from '@vtex/styleguide/lib/SelectableCard'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { AuthSelectorState } from '../../redux/auth/selectors'
 import { signInSuccess } from '../../redux/auth/actions'
+
+import styled from 'styled-components'
+
+const Space = styled.div`
+margin: 2rem 0;
+`
 
 export function Home() {
   const [isOpen, setIsOpen] = React.useState(false)
@@ -16,7 +26,17 @@ export function Home() {
     <Layout fullWidth>
       <Card>
         {JSON.stringify(authState)}
-        <button onClick={() => { dispatch(signInSuccess('teste', {})) }}>oi</button>
+        <Button
+          type="button"
+          size="large"
+          // isLoading
+          // disabled
+          variation="secondary"
+          onClick={() => { setIsOpen(!isOpen) }}>oi</Button>
+        <Space />
+
+        <Divider />
+        <Space />
         <Collapsible
           isOpen={isOpen}
           onClick={() => { setIsOpen(!isOpen) }}
@@ -24,6 +44,13 @@ export function Home() {
         >
           oia
         </Collapsible>
+
+        <Space />
+        <SelectableCard selected>
+          <div className="pa7">
+            <div className="f3 tc">Card 1</div>
+          </div>
+        </SelectableCard>
       </Card>
     </Layout>
   )
